@@ -14,13 +14,13 @@ html_code = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrimeTech Solutions - Tecnologia e Automação</title>
-    <!-- Three.js para o modelo 3D do Notebook e elementos espalhados -->
+    <!-- Three.js para o setup 3D completo -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
             --bg-deep: #05050a;
-            --bg-card: rgba(16, 16, 26, 0.75);
-            --bg-card-hover: rgba(22, 22, 36, 0.9);
+            --bg-card: rgba(16, 16, 26, 0.85);
+            --bg-card-hover: rgba(22, 22, 36, 0.95);
             --accent-cyan: #00f2fe;
             --accent-blue: #4facfe;
             --accent-purple: #7f00ff;
@@ -103,7 +103,7 @@ html_code = """
 
         #canvas-container {
             width: 100%;
-            height: 350px;
+            height: 380px;
             margin: 1rem auto;
             cursor: grab;
         }
@@ -162,10 +162,10 @@ html_code = """
         .floating-box {
             background: var(--bg-card);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(0, 242, 254, 0.2);
+            border: 1px solid rgba(0, 242, 254, 0.3);
             border-radius: 16px;
             padding: 2.5rem 1.5rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             animation: floatSlow 6s ease-in-out infinite;
         }
 
@@ -226,14 +226,14 @@ html_code = """
             margin-top: 1.5rem;
         }
         .diff-step-pill {
-            background: rgba(127, 0, 255, 0.2);
-            border: 1px solid rgba(127, 0, 255, 0.5);
+            background: rgba(127, 0, 255, 0.25);
+            border: 1px solid rgba(127, 0, 255, 0.6);
             color: #fff;
             padding: 0.6rem 1.1rem;
             border-radius: 10px;
             font-size: 0.85rem;
             font-weight: 700;
-            box-shadow: 0 0 15px rgba(127, 0, 255, 0.2);
+            box-shadow: 0 0 15px rgba(127, 0, 255, 0.3);
         }
 
         .whatsapp-float {
@@ -282,7 +282,7 @@ html_code = """
         <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20conversar%20sobre%20automações." target="_blank" class="btn-header">Falar com Especialista</a>
     </header>
 
-    <!-- 1️⃣ HERO COM NOTEBOOK / COMPUTADOR COMPLETO 3D -->
+    <!-- 1️⃣ HERO COM SETUP DE COMPUTADOR COMPLETO + MOUSE + COMPONENTES 3D -->
     <section class="hero">
         <h1>Sua empresa ainda perde tempo com <span>processos manuais</span>?</h1>
         <p>A PrimeTech Solutions transforma tarefas repetitivas em sistemas e automações inteligentes que geram eficiência real para o seu negócio.</p>
@@ -395,7 +395,7 @@ html_code = """
         <p>&copy; 2026 PrimeTech Solutions. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script 3D: Notebook Completo + Objetos Geométricos Flutuantes -->
+    <!-- Script 3D: Setup Completo de Computador (Monitor Brilhante, Teclado, Mouse e Partículas de Luz) -->
     <script>
         const container = document.getElementById('canvas-container');
         const scene = new THREE.Scene();
@@ -404,73 +404,95 @@ html_code = """
         renderer.setSize(container.clientWidth, container.clientHeight);
         container.appendChild(renderer.domElement);
 
-        // Grupo principal do Notebook / Computador Completo
-        const notebookGroup = new THREE.Group();
+        // Grupo principal do Setup do Computador
+        const pcGroup = new THREE.Group();
 
-        // 1. Base do Notebook (Teclado e Corpo Inferior)
-        const baseGeo = new THREE.BoxGeometry(3.2, 0.15, 2.2);
-        const baseMat = new THREE.MeshStandardMaterial({ color: 0x181824, roughness: 0.3, metalness: 0.8 });
-        const base = new THREE.Mesh(baseGeo, baseMat);
-        base.position.y = -0.1;
-        notebookGroup.add(base);
+        // 1. Base / Mesa digitalizadora ou suporte inferior
+        const deskBaseGeo = new THREE.BoxGeometry(4.2, 0.1, 2.6);
+        const deskBaseMat = new THREE.MeshStandardMaterial({ color: 0x1f1f32, roughness: 0.4, metalness: 0.7 });
+        const deskBase = new THREE.Mesh(deskBaseGeo, deskBaseMat);
+        deskBase.position.y = -0.6;
+        pcGroup.add(deskBase);
 
-        // Detalhe do Trackpad na base
-        const trackpadGeo = new THREE.BoxGeometry(0.8, 0.02, 0.5);
-        const trackpadMat = new THREE.MeshStandardMaterial({ color: 0x222235, roughness: 0.5 });
-        const trackpad = new THREE.Mesh(trackpadGeo, trackpadMat);
-        trackpad.position.set(0, -0.01, 0.6);
-        notebookGroup.add(trackpad);
+        // 2. Monitor / Computador Completo (Tela com alto brilho e moldura clara)
+        const monitorGeo = new THREE.BoxGeometry(3.4, 2.1, 0.15);
+        const monitorMat = new THREE.MeshStandardMaterial({ color: 0x2b2b45, roughness: 0.2, metalness: 0.8 });
+        const monitor = new THREE.Mesh(monitorGeo, monitorMat);
+        monitor.position.set(0, 0.5, 0);
+        pcGroup.add(monitor);
 
-        // 2. Tela do Notebook (Ecra articulado para cima e para trás)
-        const screenGroup = new THREE.Group();
-        screenGroup.position.set(0, 0, -1.1);
-        screenGroup.rotation.x = -0.45; // Ângulo de abertura da tela
-
-        // Estrutura traseira da tela
-        const screenBackGeo = new THREE.BoxGeometry(3.2, 2.1, 0.1);
-        const screenBackMat = new THREE.MeshStandardMaterial({ color: 0x141420, roughness: 0.3, metalness: 0.9 });
-        const screenBack = new THREE.Mesh(screenBackGeo, screenBackMat);
-        screenBack.position.set(0, 1.05, 0);
-        screenGroup.add(screenBack);
-
-        // Display luminoso (Onde roda o ambiente digital / código)
-        const displayGeo = new THREE.BoxGeometry(2.9, 1.8, 0.02);
-        const displayMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: false });
+        // Display brilhante e colorido (Com elementos e código simulado visíveis)
+        const displayGeo = new THREE.BoxGeometry(3.1, 1.8, 0.05);
+        const displayMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
         const display = new THREE.Mesh(displayGeo, displayMat);
-        display.position.set(0, 1.05, 0.06);
-        screenGroup.add(display);
+        display.position.set(0, 0.5, 0.09);
+        pcGroup.add(display);
 
-        // Borda brilhante em volta do display
-        const screenBorderGeo = new THREE.BoxGeometry(3.0, 1.9, 0.05);
-        const screenBorderMat = new THREE.MeshBasicMaterial({ color: 0x7f00ff, wireframe: true, transparent: true, opacity: 0.4 });
-        const screenBorder = new THREE.Mesh(screenBorderGeo, screenBorderMat);
-        screenBorder.position.set(0, 1.05, 0.05);
-        screenGroup.add(screenBorder);
+        // Hastes de suporte do monitor
+        const standGeo = new THREE.BoxGeometry(0.4, 0.6, 0.4);
+        const standMat = new THREE.MeshStandardMaterial({ color: 0x3d3d5c, metalness: 0.9 });
+        const stand = new THREE.Mesh(standGeo, standMat);
+        stand.position.set(0, -0.35, 0);
+        pcGroup.add(stand);
 
-        notebookGroup.add(screenGroup);
-        scene.add(notebookGroup);
+        // 3. Teclado 3D na frente do monitor
+        const keyboardGeo = new THREE.BoxGeometry(2.6, 0.08, 1.0);
+        const keyboardMat = new THREE.MeshStandardMaterial({ color: 0x22223b, roughness: 0.5, metalness: 0.6 });
+        const keyboard = new THREE.Mesh(keyboardGeo, keyboardMat);
+        keyboard.position.set(0, -0.5, 1.0);
+        pcGroup.add(keyboard);
 
-        // Iluminação
-        scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-        const pointLight = new THREE.PointLight(0x00f2fe, 3, 30);
-        pointLight.position.set(4, 4, 4);
-        scene.add(pointLight);
+        // 4. Mouse 3D ao lado do teclado
+        const mouseGeo = new THREE.BoxGeometry(0.4, 0.12, 0.7);
+        const mouseMat = new THREE.MeshStandardMaterial({ color: 0x00f2fe, roughness: 0.3, metalness: 0.8 });
+        const mouse = new THREE.Mesh(mouseGeo, mouseMat);
+        mouse.position.set(1.8, -0.5, 0.9);
+        pcGroup.add(mouse);
 
-        const purpleLight = new THREE.PointLight(0x7f00ff, 2, 30);
-        purpleLight.position.set(-4, -4, 4);
+        scene.add(pcGroup);
+
+        // 5. Partículas de Luz e Dados (Flutuando ao redor do computador)
+        const particleCount = 80;
+        const particleGeo = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+            particlePositions[i] = (Math.random() - 0.5) * 7;
+            particlePositions[i + 1] = (Math.random() - 0.5) * 5;
+            particlePositions[i + 2] = (Math.random() - 0.5) * 7;
+        }
+
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        const particleMat = new THREE.PointsMaterial({
+            color: 0x00f2fe,
+            size: 0.08,
+            transparent: true,
+            opacity: 0.9
+        });
+        const particles = new THREE.Points(particleGeo, particleMat);
+        scene.add(particles);
+
+        // Iluminação Forte e Colorida para destacar o Computador
+        scene.add(new THREE.AmbientLight(0xffffff, 1.2));
+        const frontLight = new THREE.PointLight(0x00f2fe, 4, 30);
+        frontLight.position.set(0, 2, 4);
+        scene.add(frontLight);
+
+        const purpleLight = new THREE.PointLight(0x7f00ff, 3, 30);
+        purpleLight.position.set(-3, -2, 3);
         scene.add(purpleLight);
 
-        camera.position.set(0, 1.2, 4.2);
-        camera.lookAt(0, 0.5, 0);
+        camera.position.z = 5.2;
 
-        // Controles de Arraste (Mouse / Toque)
+        // Controles de Arraste por Mouse / Toque
         let isDragging = false;
         let prevMousePos = { x: 0, y: 0 };
 
         container.addEventListener('mousedown', (e) => { isDragging = true; prevMousePos = { x: e.clientX, y: e.clientY }; });
         window.addEventListener('mousemove', (e) => {
             if (!isDragging) return;
-            notebookGroup.rotation.y += (e.clientX - prevMousePos.x) * 0.01;
+            pcGroup.rotation.y += (e.clientX - prevMousePos.x) * 0.01;
+            pcGroup.rotation.x += (e.clientY - prevMousePos.y) * 0.01;
             prevMousePos = { x: e.clientX, y: e.clientY };
         });
         window.addEventListener('mouseup', () => { isDragging = false; });
@@ -478,12 +500,13 @@ html_code = """
         container.addEventListener('touchstart', (e) => { isDragging = true; prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY }; });
         window.addEventListener('touchmove', (e) => {
             if (!isDragging) return;
-            notebookGroup.rotation.y += (e.touches[0].clientX - prevMousePos.x) * 0.01;
+            pcGroup.rotation.y += (e.touches[0].clientX - prevMousePos.x) * 0.01;
+            pcGroup.rotation.x += (e.touches[0].clientY - prevMousePos.y) * 0.01;
             prevMousePos = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         });
         window.addEventListener('touchend', () => { isDragging = false; });
 
-        // Fundo 3D Global com múltiplos objetos geométricos espalhados
+        // Fundo 3D Global com formas geométricas espalhadas
         const bgCanvas = document.getElementById('bg-canvas');
         const bgScene = new THREE.Scene();
         const bgCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -493,43 +516,55 @@ html_code = """
 
         const floatingObjects = [];
         const geometries = [
-            new THREE.BoxGeometry(0.8, 0.8, 0.8),
-            new THREE.OctahedronGeometry(0.7),
-            new THREE.TetrahedronGeometry(0.8)
+            new THREE.BoxGeometry(0.9, 0.9, 0.9),
+            new THREE.OctahedronGeometry(0.8),
+            new THREE.TetrahedronGeometry(0.9)
         ];
 
-        for (let i = 0; i < 15; i++) {
+        for (let i = 0; i < 18; i++) {
             const geo = geometries[Math.floor(Math.random() * geometries.length)];
             const mat = new THREE.MeshStandardMaterial({
                 color: i % 2 === 0 ? 0x00f2fe : 0x7f00ff,
                 wireframe: true,
                 transparent: true,
-                opacity: 0.35
+                opacity: 0.4
             });
             const mesh = new THREE.Mesh(geo, mat);
             mesh.position.set(
-                (Math.random() - 0.5) * 16,
-                (Math.random() - 0.5) * 25,
-                (Math.random() - 0.5) * 10
+                (Math.random() - 0.5) * 18,
+                (Math.random() - 0.5) * 28,
+                (Math.random() - 0.5) * 12
             );
             bgScene.add(mesh);
             floatingObjects.push(mesh);
         }
 
-        bgScene.add(new THREE.AmbientLight(0xffffff, 0.8));
+        bgScene.add(new THREE.AmbientLight(0xffffff, 0.9));
 
+        // Loop de Animação com Partículas e Reação ao Scroll
         function animate() {
             requestAnimationFrame(animate);
 
             if (!isDragging) {
-                notebookGroup.rotation.y += 0.004;
+                pcGroup.rotation.y += 0.003;
+                pcGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.1;
             }
 
+            // Movimento das partículas de dados de luz
+            const positions = particleGeo.attributes.position.array;
+            for (let i = 1; i < positions.length; i += 3) {
+                positions[i] -= 0.01;
+                if (positions[i] < -3) positions[i] = 3;
+            }
+            particleGeo.attributes.position.needsUpdate = true;
+
+            // Reação ao scroll da página
             const scrollY = window.scrollY;
+            pcGroup.position.y = scrollY * 0.0008;
+
             floatingObjects.forEach((obj, index) => {
-                obj.rotation.x += 0.005 + (index * 0.0005);
-                obj.rotation.y += 0.007 + (index * 0.0005);
-                obj.position.y += Math.sin(Date.now() * 0.002 + index) * 0.003;
+                obj.rotation.x += 0.004 + (index * 0.0004);
+                obj.rotation.y += 0.006 + (index * 0.0004);
             });
 
             bgRenderer.render(bgScene, bgCamera);
