@@ -14,7 +14,7 @@ html_code = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrimeTech Solutions - Tecnologia e Automação</title>
-    <!-- Three.js para o elemento 3D interativo -->
+    <!-- Three.js para o ambiente 3D avançado -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root {
@@ -43,8 +43,8 @@ html_code = """
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
-                linear-gradient(to bottom, rgba(7,7,12,0.9), rgba(7,7,12,0.98)),
-                radial-gradient(circle at 50% 20%, rgba(127,0,255,0.12) 0%, transparent 50%);
+                linear-gradient(to bottom, rgba(7,7,12,0.85), rgba(7,7,12,0.98)),
+                radial-gradient(circle at 50% 20%, rgba(127,0,255,0.15) 0%, transparent 60%);
             z-index: -1;
         }
 
@@ -94,7 +94,7 @@ html_code = """
         }
 
         .hero {
-            padding: 4rem 5% 2rem 5%;
+            padding: 3rem 5% 1rem 5%;
             text-align: center;
             max-width: 900px;
             margin: 0 auto;
@@ -102,8 +102,8 @@ html_code = """
 
         #canvas-container {
             width: 100%;
-            height: 280px;
-            margin: 1rem auto;
+            height: 350px;
+            margin: 0 auto;
             cursor: grab;
         }
         #canvas-container:active { cursor: grabbing; }
@@ -125,7 +125,7 @@ html_code = """
         .hero p {
             font-size: 1.15rem;
             color: var(--text-muted);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .cta-btn {
@@ -136,7 +136,7 @@ html_code = """
             font-weight: 800;
             border-radius: 8px;
             text-decoration: none;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.35);
             display: inline-block;
             transition: transform 0.2s;
         }
@@ -156,7 +156,6 @@ html_code = """
             font-weight: 800;
         }
 
-        /* O Problema & Transformação */
         .flow-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -171,7 +170,6 @@ html_code = """
         .flow-card h4 { color: #fff; margin-top: 0; font-size: 1.1rem; margin-bottom: 0.8rem; }
         .flow-card p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
 
-        /* Serviços */
         .services-stack {
             display: flex;
             flex-direction: column;
@@ -194,7 +192,6 @@ html_code = """
         .service-item h4 { color: #fff; margin: 0; font-size: 1rem; font-weight: 600; }
         .service-item span { color: var(--accent-cyan); font-size: 0.8rem; font-weight: 500; background: rgba(0,242,254,0.05); padding: 0.2rem 0.6rem; border-radius: 4px; }
 
-        /* Diferencial / Arquitetura */
         .diff-box {
             background: linear-gradient(135deg, rgba(16,16,26,0.95), rgba(22,22,36,0.95));
             border: 1px solid rgba(0, 242, 254, 0.3);
@@ -219,7 +216,6 @@ html_code = """
             font-weight: 600;
         }
 
-        /* WhatsApp Flutuante */
         .whatsapp-float {
             position: fixed;
             bottom: 25px;
@@ -264,15 +260,15 @@ html_code = """
         <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20conversar%20sobre%20automações%20para%20minha%20empresa." target="_blank" class="btn-header">Falar com Especialista</a>
     </header>
 
-    <!-- 1️⃣ HERO COM IMPACTO E 3D -->
+    <!-- 1️⃣ HERO COM COMPUTADOR/SERVIDOR 3D E PARTÍCULAS -->
     <section class="hero">
         <h1>Sua empresa ainda perde tempo com <span>processos manuais</span>?</h1>
         <p>A PrimeTech Solutions transforma tarefas repetitivas em sistemas e automações inteligentes que geram eficiência real para o seu negócio.</p>
         
-        <!-- Elemento 3D Interativo -->
+        <!-- Elemento 3D Interativo (Servidor + Partículas de Dados) -->
         <div id="canvas-container"></div>
 
-        <div style="margin-top: 1.5rem;">
+        <div style="margin-top: 1rem;">
             <a href="https://wa.me/5511999999999?text=Olá,%20quero%20conhecer%20as%20soluções%20da%20PrimeTech." target="_blank" class="cta-btn">Conheça nossas soluções</a>
         </div>
     </section>
@@ -344,7 +340,7 @@ html_code = """
         </div>
     </section>
 
-    <!-- 5️⃣ SEU DIFERENCIAL (Hardware + Software + Solução Completa) -->
+    <!-- 5️⃣ SEU DIFERENCIAL -->
     <section id="diferencial" class="section">
         <h2 class="section-title">Nosso Diferencial Tecnológico</h2>
         <div class="diff-box">
@@ -364,13 +360,12 @@ html_code = """
     </section>
 
     <!-- CONTATO / CTA FINAL -->
-    <section class="hero" style="padding-top: 2rem;">
+    <section class="hero" style="padding-top: 1rem;">
         <h2 class="section-title">Pronto para transformar sua empresa?</h2>
         <p>Fale diretamente com nossa equipe e descubra como otimizar seus processos ainda esta semana.</p>
         <a href="https://wa.me/5511999999999?text=Olá,%20quero%20conversar%20sobre%20um%20projeto%20para%20minha%20empresa." target="_blank" class="cta-btn" style="font-size: 1.1rem; padding: 1rem 2.5rem;">💬 Falar no WhatsApp agora</a>
     </section>
 
-    <!-- WhatsApp Flutuante -->
     <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20da%20PrimeTech." target="_blank" class="whatsapp-float" title="Falar no WhatsApp">
         💬
     </a>
@@ -379,7 +374,7 @@ html_code = """
         <p>&copy; 2026 PrimeTech Solutions. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Script 3D Three.js -->
+    <!-- Script 3D Avançado: Servidor/Computador + Partículas de Luz + Reação ao Scroll -->
     <script>
         const container = document.getElementById('canvas-container');
         const scene = new THREE.Scene();
@@ -388,37 +383,92 @@ html_code = """
         renderer.setSize(container.clientWidth, container.clientHeight);
         container.appendChild(renderer.domElement);
 
-        // Geometria de Servidor / Cubo Tecnológico 3D
-        const geometry = new THREE.BoxGeometry(2, 2, 2);
-        const material = new THREE.MeshStandardMaterial({
-            color: 0x00f2fe,
-            wireframe: true,
-            roughness: 0.3,
-            metalness: 0.8
-        });
-        const cube = new THREE.Mesh(geometry, material);
-        scene.add(cube);
+        // Grupo principal para o Servidor/Computador 3D
+        const serverGroup = new THREE.Group();
 
-        const innerGeo = new THREE.BoxGeometry(1.4, 1.4, 1.4);
-        const innerMat = new THREE.MeshStandardMaterial({
-            color: 0x7f00ff,
+        // 1. Corpo principal do Servidor (Rack / Torre)
+        const chassisGeo = new THREE.BoxGeometry(2, 2.6, 1.2);
+        const chassisMat = new THREE.MeshStandardMaterial({
+            color: 0x141422,
             roughness: 0.2,
             metalness: 0.9
         });
-        const innerCube = new THREE.Mesh(innerGeo, innerMat);
-        scene.add(innerCube);
+        const chassis = new THREE.Mesh(chassisGeo, chassisMat);
+        serverGroup.add(chassis);
 
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+        // 2. Painel frontal com leds de conexões (Ranhuras e Luzes)
+        for (let i = -0.9; i <= 0.9; i += 0.45) {
+            const slotGeo = new THREE.BoxGeometry(1.7, 0.25, 0.1);
+            const slotMat = new THREE.MeshStandardMaterial({
+                color: 0x1e1e32,
+                roughness: 0.4,
+                metalness: 0.5
+            });
+            const slot = new THREE.Mesh(slotGeo, slotMat);
+            slot.position.set(0, i, 0.61);
+            serverGroup.add(slot);
+
+            // LED de atividade de dados (Luz azul/ciano)
+            const ledGeo = new THREE.BoxGeometry(0.12, 0.08, 0.05);
+            const ledMat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
+            const led = new THREE.Mesh(ledGeo, ledMat);
+            led.position.set(0.7, i, 0.63);
+            serverGroup.add(led);
+        }
+
+        // 3. Moldura de borda com wireframe luminoso (Efeito Tecnológico)
+        const wireFrameGeo = new THREE.BoxGeometry(2.05, 2.65, 1.25);
+        const wireFrameMat = new THREE.MeshBasicMaterial({
+            color: 0x00f2fe,
+            wireframe: true,
+            transparent: true,
+            opacity: 0.25
+        });
+        const wireBox = new THREE.Mesh(wireFrameGeo, wireFrameMat);
+        serverGroup.add(wireBox);
+
+        scene.add(serverGroup);
+
+        // 4. Sistema de Partículas de Luz e Dados ao redor
+        const particleCount = 120;
+        const particleGeo = new THREE.BufferGeometry();
+        const particlePositions = new Float32Array(particleCount * 3);
+
+        for (let i = 0; i < particleCount * 3; i += 3) {
+            particlePositions[i] = (Math.random() - 0.5) * 8;
+            particlePositions[i + 1] = (Math.random() - 0.5) * 8;
+            particlePositions[i + 2] = (Math.random() - 0.5) * 8;
+        }
+
+        particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+        const particleMat = new THREE.PointsMaterial({
+            color: 0x00f2fe,
+            size: 0.06,
+            transparent: true,
+            opacity: 0.8
+        });
+        const particles = new THREE.Points(particleGeo, particleMat);
+        scene.add(particles);
+
+        // Iluminação
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
         scene.add(ambientLight);
 
-        const pointLight = new THREE.PointLight(0x00f2fe, 2, 50);
-        pointLight.position.set(5, 5, 5);
+        const pointLight = new THREE.PointLight(0x00f2fe, 3, 30);
+        pointLight.position.set(4, 4, 4);
         scene.add(pointLight);
 
-        camera.position.z = 5;
+        const purpleLight = new THREE.PointLight(0x7f00ff, 2, 30);
+        purpleLight.position.set(-4, -4, 4);
+        scene.add(purpleLight);
 
+        camera.position.z = 4.8;
+
+        // Controle de Rotação por Mouse / Toque (Arraste)
         let isDragging = false;
         let previousMousePosition = { x: 0, y: 0 };
+        let targetRotationX = 0;
+        let targetRotationY = 0;
 
         container.addEventListener('mousedown', (e) => {
             isDragging = true;
@@ -429,27 +479,66 @@ html_code = """
             if (!isDragging) return;
             const deltaX = e.clientX - previousMousePosition.x;
             const deltaY = e.clientY - previousMousePosition.y;
-            cube.rotation.y += deltaX * 0.008;
-            cube.rotation.x += deltaY * 0.008;
-            innerCube.rotation.y -= deltaX * 0.008;
-            innerCube.rotation.x -= deltaY * 0.008;
+            
+            serverGroup.rotation.y += deltaX * 0.01;
+            serverGroup.rotation.x += deltaY * 0.01;
+            
             previousMousePosition = { x: e.clientX, y: e.clientY };
         });
 
         window.addEventListener('mouseup', () => { isDragging = false; });
 
+        // Suporte a Toque em Dispositivos Móveis
+        container.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const deltaX = e.touches[0].clientX - previousMousePosition.x;
+            const deltaY = e.touches[0].clientY - previousMousePosition.y;
+            
+            serverGroup.rotation.y += deltaX * 0.01;
+            serverGroup.rotation.x += deltaY * 0.01;
+            
+            previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+        });
+
+        window.addEventListener('touchend', () => { isDragging = false; });
+
+        // Reação ao Scroll da Página (Movimento e Mudança de Posição)
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            // O objeto desloca-se ligeiramente e muda de rotação conforme a página desce
+            serverGroup.position.y = -scrollY * 0.0015;
+            serverGroup.rotation.z = scrollY * 0.0008;
+        });
+
+        // Loop de Animação Principal
         function animate() {
             requestAnimationFrame(animate);
+            
+            // Se não estiver a arrastar, mantém rotação automática suave
             if (!isDragging) {
-                cube.rotation.x += 0.003;
-                cube.rotation.y += 0.005;
-                innerCube.rotation.x -= 0.004;
-                innerCube.rotation.y -= 0.006;
+                serverGroup.rotation.y += 0.004;
+                serverGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.15;
             }
+
+            // Animação das partículas de dados
+            const positions = particleGeo.attributes.position.array;
+            for (let i = 1; i < positions.length; i += 3) {
+                positions[i] -= 0.008; // Movimento para baixo simulando fluxo de dados
+                if (positions[i] < -4) positions[i] = 4;
+            }
+            particleGeo.attributes.position.needsUpdate = true;
+            particles.rotation.y -= 0.001;
+
             renderer.render(scene, camera);
         }
         animate();
 
+        // Responsividade da tela
         window.addEventListener('resize', () => {
             camera.aspect = container.clientWidth / container.clientHeight;
             camera.updateProjectionMatrix();
